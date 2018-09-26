@@ -2,7 +2,6 @@ package edu.cnm.deepdive.fizzbuzzgame;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import java.util.Random;
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
   }
 
-  void setValueDisplay(String value){
+  private void setValueDisplay(String value){
     valueDisplay.setText(value);
   }
 
