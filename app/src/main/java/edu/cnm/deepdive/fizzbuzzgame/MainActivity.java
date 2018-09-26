@@ -2,7 +2,9 @@ package edu.cnm.deepdive.fizzbuzzgame;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,10 +15,13 @@ public class MainActivity extends AppCompatActivity {
   private Random rng;
   private final int BOUND = 100;
   private Timer timer;
+  private TextView correctTally;
+  private TextView incorrectTally;
+  private ToggleButton fizzButton;
+  private ToggleButton buzzButton;
   private int correct;
   private int incorrect;
 
-  
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +51,27 @@ public class MainActivity extends AppCompatActivity {
 
   private void initViews(){
     valueDisplay = findViewById(R.id.value_display);
-
+    fizzButton = findViewById(R.id.fizz_toggle);
+    buzzButton = findViewById(R.id.buzz_toggle);
+    correctTally = findViewById(R.id.correct_tally);
+    incorrectTally = findViewById(R.id.incorrect_tally);
   }
 
   private void refresh(){
+    if(value!=0){
+      if(((value%3==0)==fizzButton.isChecked())
+          && ((value%5==0)==buzzButton.isChecked())){
+        correct++;
+      }else{
+        incorrect++;
+      }
+      correctTally.setText(getString(R.string.correct_tally_format, correct));
+      incorrectTally.setText(getString(R.string.incorrect_tally_format, incorrect));
+    }
     value = rng.nextInt(BOUND)+1;
     setValueDisplay(Integer.toString(value));
+    fizzButton.setChecked(false);
+    buzzButton.setChecked(false);
   }
 
   private class UpdateTask extends TimerTask {

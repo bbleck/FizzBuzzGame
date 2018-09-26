@@ -1,3 +1,9 @@
 <resources>
   <string name="app_name">FizzBuzzGame</string>
+  <string name="fizz_on">FIZZ!</string>
+  <string name="fizz_off">fizz</string>
+  <string name="buzz_on">BUZZ!</string>
+  <string name="buzz_off">buzz</string>
+  <string name="correct_tally_format">%d correct</string>
+  <string name="incorrect_tally_format">%d incorrect</string>
 </resources>

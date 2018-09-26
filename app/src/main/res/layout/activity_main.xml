@@ -8,6 +8,24 @@
   tools:context=".MainActivity">
 
   <TextView
+    android:id="@+id/correct_tally"
+    style="@style/CorrectTally"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    tools:text="correct"/>
+
+  <TextView
+    android:id="@+id/incorrect_tally"
+    style="@style/IncorrectTally"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="@id/correct_tally"
+    app:layout_constraintRight_toRightOf="parent"
+    tools:text="incorrect"/>
+
+  <TextView
     android:id="@+id/value_display"
     style="@style/Value_Display"
     android:layout_width="wrap_content"
@@ -15,12 +33,16 @@
     app:layout_constraintBottom_toTopOf="@+id/fizz_toggle"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toBottomOf="@id/correct_tally"
+    tools:text="14"/>
 
   <ToggleButton
     android:id="@+id/fizz_toggle"
     style="@style/FizzBuzzToggle"
     android:layout_height="wrap_content"
+    android:padding="@dimen/layout_padding"
+    android:textOff="@string/fizz_off"
+    android:textOn="@string/fizz_on"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toStartOf="@+id/buzz_toggle"
     app:layout_constraintHorizontal_bias="0.5"
@@ -30,11 +52,14 @@
   <ToggleButton
     android:id="@+id/buzz_toggle"
     style="@style/FizzBuzzToggle"
+    android:textOff="@string/buzz_off"
+    android:textOn="@string/buzz_on"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toBottomOf="@id/fizz_toggle"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.5"
     app:layout_constraintStart_toEndOf="@+id/fizz_toggle"
-    app:layout_constraintTop_toTopOf="@id/fizz_toggle"/>
+    app:layout_constraintTop_toTopOf="@id/fizz_toggle"
+    android:padding="@dimen/layout_padding"/>
 
 </android.support.constraint.ConstraintLayout>

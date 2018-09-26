@@ -18,5 +18,17 @@
     <item name="android:layout_width">150dp</item>
   </style>
 
+  <style name="Tally" parent="AppTheme">
+    <item name="android:textSize">32sp</item>
+  </style>
+
+  <style name="CorrectTally" parent="Tally">
+    <item name="android:textColor">#00c000</item>
+  </style>
+
+  <style name="IncorrectTally" parent="Tally">
+    <item name="android:textColor">#ff0000</item>
+  </style>
+
 
 </resources>
